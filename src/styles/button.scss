@@ -1,0 +1,97 @@
+%btn {
+  display: inline-flex;
+  background: none;
+  border: 2px solid;
+  border-radius: 0.1875rem;
+  color: #fff;
+  font-size: var(--btn-font-size);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+a.btn,
+button.btn {
+  @extend %btn;
+
+  &:hover {
+    border-color: ui-color($palette, 'interactive');
+    background-color: ui-color-lighter($palette, 'interactive');
+  }
+  &:focus {
+    background-color: ui-color-dark($palette, 'interactive');
+  }
+
+  &:disabled {
+    background-color: ui-layout($palette, 'dark');
+  }
+
+  &__brand {
+    border-color: ui-color($palette, 'brand');
+    background-color: ui-color($palette, 'brand');
+
+    &:focus {
+      outline-color: ui-color($palette, 'interactive');
+      background-color: ui-color-light($palette, 'brand');
+    }
+
+    &:disabled {
+      color: darken(#fff, 10);
+      &:hover {
+        border-color: ui-color($palette, 'brand');
+      }
+    }
+  }
+}
+
+label.btn {
+  &__switch {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+    input[type='checkbox'] {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: ui-color($palette, 'brand');
+      transition: 0.4s;
+      border-radius: 34px;
+      &:before {
+        position: absolute;
+        content: '';
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+    }
+
+    input[type='checkbox']:checked + .slider {
+      background-color: ui-color($palette, 'brand');
+    }
+
+    input[type='checkbox']:focus + .slider {
+      background-color: ui-color($palette, 'brand');
+    }
+
+    input[type='checkbox']:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  }
+}

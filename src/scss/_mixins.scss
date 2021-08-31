@@ -1,0 +1,76 @@
+$mobile-width: 320px;
+$tablet-width: 720px;
+$desktop-width: 1024px;
+
+/** Responsive mixins */
+
+@mixin xs-mobile {
+  @media (min-width: 0px) and (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+/** Control global theme of app */
+@mixin theme($palette, $transition: 0.2s linear) {
+  transition: $transition;
+  .app[data-theme='#{$palette}'] & {
+    @content;
+  }
+}
+
+/** Disable selection on component */
+@mixin noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/** Set component view to overlay */
+@mixin overlay($zIndex: 500) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: $zIndex;
+}
+
+/** Apply material-like depth to component */
+@mixin elevation($depth: 1) {
+  @if $depth == 1 {
+    box-shadow: 0 0 10px 0 rgba(183, 192, 206, 0.2);
+  } @else if $depth == 2 {
+    box-shadow: 0 0 10px 0 rgba(183, 192, 206, 0.4);
+  } @else if $depth == 3 {
+    box-shadow: 0 0 10px 0 rgba(183, 192, 206, 0.8);
+  } @else if $depth == 4 {
+    box-shadow: 0 0 10px 0 rgba(183, 192, 206, 1);
+  } @else {
+    @error "Elevation depth '#{$depth}' invalid must a number 1 though 5";
+  }
+}
+
+/** Returns placeholder image URL */
+@function placeholder($width, $height) {
+  @return url('http://via.placeholder.com/#{$width}x#{$height}');
+}

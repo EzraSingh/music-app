@@ -1,0 +1,49 @@
+@import '../scss/mixins';
+@import '../scss/theme';
+
+// ? Core
+@import 'text';
+@import 'button';
+@import 'form';
+@import 'modal';
+@import 'design';
+
+// ? Control wire frame mode
+$wireframe-mode: false;
+
+//** Border Box Normalization */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #fff;
+  margin: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  max-width: 100vw;
+
+  @if $wireframe-mode {
+    section {
+      border: 1px dotted black;
+    }
+  }
+}
+
+body {
+  color: var(--main-font-color);
+  font-size: var(--main-font-size, 16px);
+  line-height: 1.5;
+}
+
+figure,
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+}

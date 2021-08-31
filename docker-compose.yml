@@ -1,0 +1,38 @@
+version: '3.7'
+
+x-build: &base-image-build
+  environment:
+    ENABLE_GATSBY_REFRESH_ENDPOINT: ${ENABLE_GATSBY_REFRESH_ENDPOINT}
+
+volumes:
+  shared-modules:
+
+services:
+  dev:
+    build:
+      context: .
+      args:
+        API: development
+        NPM_TOKEN: ${NPM_TOKEN}
+    container_name: app.dev
+    <<: *base-image-build
+    volumes:
+      - ./src:/app/src
+      - ./.docker/dev:/app/public
+      - shared-modules:/app/node_modules:ro
+    ports:
+      - ${DEV_PORT:-5050}:5000
+  prod:
+    build:
+      context: .
+      args:
+        API: production
+        NPM_TOKEN: ${NPM_TOKEN}
+    container_name: app.prod
+    <<: *base-image-build
+    volumes:
+      - ./src:/app/src
+      - ./.docker/prod:/app/public
+      - shared-modules:/app/node_modules:ro
+    ports:
+      - ${PROD_PORT:-5060}:5000

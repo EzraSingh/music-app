@@ -1,0 +1,37 @@
+$font-family: 'Open Sans', 'Roboto', monospace;
+
+html {
+  font-family: $font-family;
+  color: ui-layout($palette, 'light');
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+  text-transform: capitalize;
+
+  &:hover {
+    color: lightblue;
+  }
+  &:active,
+  &.active {
+    color: cyan;
+  }
+  &:visited {
+    // ? ... options Watson, options!?
+  }
+}
+
+button,
+.btn {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+}

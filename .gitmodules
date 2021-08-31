@@ -1,0 +1,3 @@
+[submodule "packages/mongotel-api-client"]
+	path = packages/mongotel-api-client
+	url = git@github.com:voore/api-web-client.git

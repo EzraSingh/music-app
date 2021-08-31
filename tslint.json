@@ -1,0 +1,19 @@
+{
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier", "tslint-plugin-graphql"],
+  "rules": {
+    "prettier": true,
+    "jsx-no-multiline-js": false,
+    "jsx-no-lambda": false,
+    "import-name": false,
+    "no-boolean-literal-compare": false,
+    "graphql": [
+      true,
+      {
+        "env": "relay",
+        "schemaJsonFilepath": "./src/graphql/schema.json",
+        "tagName": "graphql"
+      }
+    ]
+  }
+}

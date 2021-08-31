@@ -1,0 +1,17 @@
+@import 'palette.scss';
+
+$dark: #070d19;
+$light: #f9fafb;
+$brand: #727cf5;
+$interactive: #66d1d1;
+$contrast: 10;
+
+$theme: $dark, $light, $brand, $interactive, $contrast;
+
+$palette: new-palette($theme...);
+
+:root {
+  --main-font-size: 0.875rem;
+  --main-font-color: #333;
+  --mute-text-color: #686868;
+}
