@@ -1,0 +1,22 @@
+
+.app{
+    &__layout{
+        position: relative;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 30% 1fr;
+        grid-template-areas:
+        "sidemenu instrument"
+        "sidemenu content";
+        height: 100%;
+        &--sidemenu{
+            grid-area: sidemenu;
+        }
+        &--instrument{
+            grid-area: instrument;
+        }
+        &--content{
+            grid-area: content;
+        }
+    }
+}
