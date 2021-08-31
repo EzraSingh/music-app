@@ -1,19 +1,25 @@
 
 .app{
     &__layout{
+        background: #FFE9F3;
         position: relative;
         display: grid;
-        grid-gap: 10px;
-        grid-template-columns: 30% 1fr;
+        grid-template-columns: 250px 1fr;
+        grid-template-rows: 250px 1fr;
         grid-template-areas:
-        "sidemenu instrument"
-        "sidemenu content";
+            "sidemenu instrument"
+            "sidemenu content";
         height: 100%;
         &--sidemenu{
+            background: #FF715B;
             grid-area: sidemenu;
+            @include elevation(4);
+            border-right: 6px solid lighten(#FF715B, 5);
         }
         &--instrument{
+            background: #FFF;
             grid-area: instrument;
+            @include elevation(2);
         }
         &--content{
             grid-area: content;
