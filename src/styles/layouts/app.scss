@@ -1,6 +1,7 @@
 
 .app{
     &__layout{
+        position: relative;
         background: #FFE9F3;
         position: relative;
         display: grid;
@@ -13,16 +14,22 @@
         &--sidemenu{
             background: #FF715B;
             grid-area: sidemenu;
-            @include elevation(4);
+            padding: 1em;
             border-right: 6px solid lighten(#FF715B, 5);
+            @include elevation(4);
         }
         &--instrument{
             background: #FFF;
             grid-area: instrument;
+            padding: 0;
             @include elevation(2);
+            div {
+                height: 100%;
+              }
         }
         &--content{
             grid-area: content;
+            padding: 1em;
         }
     }
 }

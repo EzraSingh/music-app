@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
-import { AppLayout } from '../components';
+import { AppLayout, GuitarFretBoard } from '../components';
 
 const IndexPage: FunctionComponent<StaticPageProps> = (props) => {
     return(
         <AppLayout>
-            Hi
+            <GuitarFretBoard/>
         </AppLayout>
     )
 }

@@ -1,3 +1,5 @@
+declare module 'react-d3-library'; 
+
 declare module '*.png' {
   const value: string;
   export = value;
