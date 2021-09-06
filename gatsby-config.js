@@ -4,7 +4,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-tslint`,
-    `gatsby-plugin-sass`,
     `gatsby-plugin-graphql-loader`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-yaml`,
@@ -19,6 +18,10 @@ module.exports = {
       options: {
         whitelist: ['NODE_ENV', 'API_ENV'],
       },
+    },
+    {
+      resolve: `gatsby-plugin-sass`,
+      implementation: require("sass"),
     },
     {
       resolve: `gatsby-source-filesystem`,

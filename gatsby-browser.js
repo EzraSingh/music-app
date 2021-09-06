@@ -1,12 +1,12 @@
 import React from 'react';
 import { UX } from '@liontechnyc/gemini';
-import { ApiProvider } from './src/redux';
+import { ReduxProvider } from './src/redux';
 import { NotificationsProvider } from './src/notifications';
 
 import './src/styles/app.scss';
 
 export const wrapRootElement = ({ element, props }) => {
-  return <ApiProvider>{element}</ApiProvider>;
+  return <ReduxProvider>{element}</ReduxProvider>;
 };
 
 export const wrapPageElement = ({ element, props }) => {

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $mobile-width: 320px;
 $tablet-width: 720px;
 $desktop-width: 1024px;
@@ -73,4 +75,56 @@ $desktop-width: 1024px;
 /** Returns placeholder image URL */
 @function placeholder($width, $height) {
   @return url('http://via.placeholder.com/#{$width}x#{$height}');
+}
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @return $value;
+}
+
+/// Mixin to place items on a circle
+/// @author Kitty Giraudel
+/// @author Ana Tudor
+/// @param {Integer} $item-count - Number of items on the circle
+/// @param {Length} $circle-size - Large circle size
+/// @param {Length} $item-size - Single item size
+@mixin on-circle($item-count, $circle-size, $item-size, $angularPhase: 0deg) {
+  position: relative;
+  width:  $circle-size;
+  height: $circle-size;
+  padding: 0;
+  border-radius: 50%; 
+  list-style: none;       
+  
+  > * {
+    display: block;
+    position: absolute;
+    top:  50%; 
+    left: 50%;
+    width:  $item-size;
+    height: $item-size;
+    margin: -1 * ($item-size / 2);
+  
+    $angle: (360 / $item-count);
+    $rot: 0;
+    $offset: ($circle-size / 2);
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: 
+          rotate($rot * 1deg + $angularPhase) 
+          translate($offset) 
+          rotate($rot * -1deg - $angularPhase);
+      }
+
+      $rot: $rot + $angle;
+    }
+  }
 }

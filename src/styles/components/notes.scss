@@ -1,0 +1,29 @@
+@use 'sass:math';
+
+// ? This is an arbistrary offset due to circle mixin initial angle
+$initialAngle: 270deg;
+
+/**
+
+We have to omit sharps because they are
+interpretted literally as CSS ID selectors
+so only flat accidentals can be used as 
+appropriate CSS selectors
+
+*/
+
+$noteSelectorPhases: (
+  'C': $initialAngle,
+  'G': $initialAngle - (360deg / pow(12, 2)),
+  'D': $initialAngle - (360deg / pow(12, 3)),
+  'A': $initialAngle - (360deg / pow(12, 4)),
+  'E': $initialAngle - (360deg / pow(12, 5)),
+  'B': $initialAngle - (360deg / pow(12, 6)),
+  'Gb': $initialAngle - (360deg / pow(12, 7)),
+  'Db': $initialAngle - (360deg / pow(12, 8)),
+  'Ab': $initialAngle - (360deg / pow(12, 9)),
+  'Eb': $initialAngle - (360deg / pow(12, 10)),
+  'Bb': $initialAngle - (360deg / pow(12, 11)),
+  'F': $initialAngle - (360deg / pow(12, 12)),
+  
+);

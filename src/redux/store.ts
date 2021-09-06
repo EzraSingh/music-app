@@ -7,7 +7,7 @@ export const appMiddlewares = [notificationsMiddleware];
 
 export const storeFactory = (appReducers = {}, appMiddlewares: any[] = []) =>
   configureStore({
-    reducer: combineReducers({ core: coreReducer, ...appReducers }),
+    reducer: combineReducers({ app: coreReducer, ...appReducers }),
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat([
         logger,

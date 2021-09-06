@@ -44,6 +44,7 @@
     "gatsby-transformer-yaml": "^2.4.2",
     "git-last-commit": "^1.0.0",
     "graphql-tag": "^2.10.3",
+    "hyperid": "^2.3.1",
     "immutable": "^3.8.2",
     "lodash": "^4.17.19",
     "moment": "^2.29.0",
@@ -58,6 +59,7 @@
     "react-redux": "^7.2.4",
     "react-toastify": "^6.2.0",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.39.0",
     "styled-components": "^5.1.1",
     "utf-8-validate": "^5.0.3"
   },

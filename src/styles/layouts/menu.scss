@@ -1,9 +1,10 @@
 
-.app{
-    &__sideMenu{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
+
+.app {
+  &__sideMenu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 }

@@ -1,0 +1,32 @@
+@import 'notes';
+
+$radius: 24px;
+$size: 100px;
+
+.noteSelector {
+  flex: 1 0 auto;
+  margin: 2em auto;
+  @each $note, $phase in $noteSelectorPhases {
+    &.#{$note} {
+      @include on-circle(
+        $item-count: 12,
+        $circle-size: $size,
+        $item-size: $radius,
+        $angularPhase: $phase
+      );
+    }
+  }
+  .note {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background: lightblue;
+    height: $radius;
+    width: $radius;
+    border-radius: 999px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 3s ease-in-out !important;
+  }
+}

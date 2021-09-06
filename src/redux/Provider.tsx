@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import { Provider } from 'react-redux';
-import { ActionHandler } from './interfaces';
+import { ActionHandler } from '../interfaces';
 import { storeFactory, appMiddlewares } from './store';
 
-export interface ApiProviderProps {
+export interface ReduxProviderProps {
   appReducers?: { [reducer: string]: ActionHandler };
   appMiddlewares?: any[];
 }
 
-export const ApiProvider: FunctionComponent<ApiProviderProps> = ({
+export const ReduxProvider: FunctionComponent<ReduxProviderProps> = ({
   appReducers,
   children,
 }) => {
